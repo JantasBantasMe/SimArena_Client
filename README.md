@@ -143,7 +143,7 @@ Take the second POST-Method and send your Character yet again into the arena.
 `API.PostSecondFight(<your class instance>)`
 
 Win against your second enemy:
-```json
+```csharp
 {
     Name = "Wood-Puppet",
     Hp = 50,
@@ -216,7 +216,7 @@ The BASE value is added before any skill points, and all modifiers are cumulativ
 | **Accuracy**   |    |           |           |            |            | +10      | 40   |
 
 Sample Character: 30 Points:
-```json
+```csharp
 {
     Name = "random",
     Hp = 5,
@@ -229,7 +229,7 @@ Sample Character: 30 Points:
 ```
 
 will be the following character:
-```json
+```csharp
 {
     Name = "Thorin Ironfist",
     Hp = 55,
