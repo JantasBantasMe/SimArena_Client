@@ -81,7 +81,7 @@ If you get the response, everything works and you can start.
 
 ## 🪜 Step 2 - First own POST-request
 
-### Create the class
+### 🚶‍♂️ Create the class
 
 Now create your first class and fill it with these properties:
 
@@ -111,7 +111,7 @@ Win against your first enemy, here its stats:
     DefenseMin = 5
 };
 
-### 🌐 Use the response
+### 🧾 Use the response
 
 Catch the response in a simple `string` variable and write it to the console.
 
@@ -125,7 +125,7 @@ Catch the response in a simple `string` variable and write it to the console.
 
 ## 🪜 Step 3 - Improve your class
 
-### Create the class
+### 🚶‍♂️ Create the class
 
 Lets add more functionality WITHOUT tampering with your current class.
 Create a second class and try to inherit from your first class.
@@ -162,7 +162,7 @@ The rules are as followed:
 4. Rolled Defense gets substracted from enemies rolled Attack.
 5. Repeat till "Winner Winner Chicken Dinner" (Or after 99 Rounds)
 
-### Use the response
+### 🧾 Use the response
 
 Catch the response in a `List` and try to loop over it to output the response into the console.
 The fighting log is safed line for line in this `List`. 
@@ -183,7 +183,7 @@ With something like this, you dont need to change the character in Code, but dur
 
 ## 🪜 Step 4 - Rock Paper Sissor / skill point system:
 
-### Create the class
+### 🚶‍♂️ Create the class
 
 In Step 4 repeat the learned things in the steps before by adding a 3rd class and inherit from the 2nd one.
 
@@ -247,16 +247,17 @@ Take the third POST-Method and send your Character yet again into the arena, but
 
 `API.PostThirdFight(<your class instance>)`
 
-### Use the response
+### 🧾 Use the response
 
 Catch the response as before and write it to the console. This should already work at this point.
 
 ### 💭 Think about this
 
-- Do I like this system? → NO? → create your better version 
-- Do I know more than GET and POST? → NO? → go and learn?
+- Can i tamper with the response data? May i break round for round with a Console.ReadLine()?
 - Can I find more Endpoints on this API with Scalar? And even write a new CustomHttpClient method?
 - Do I know what scalar is?
+- Do I like this system? → NO? → create your better version 
+- Do I know more than GET and POST? → NO? → go and learn?
 - Do I know what happens when i use "random" as the name?
 
 ### Optional: 
