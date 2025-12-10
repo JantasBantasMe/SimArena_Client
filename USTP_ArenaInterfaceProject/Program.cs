@@ -1,4 +1,6 @@
-﻿namespace USTP_ArenaInterfaceProject
+﻿using MyProject.CustomClient;
+
+namespace USTP_ArenaInterface
 {
     internal class Program
     {
@@ -7,17 +9,18 @@
             //
             //Here the Custom HttpClient will be instantiated:
             //
-            SimArenaCustomClient API = new SimArenaCustomClient();
+            SimArenaCustomClient_SinglePlayer spApi = new SimArenaCustomClient_SinglePlayer();
+            SimArenaCustomClient_MultiPlayer mpApi = new SimArenaCustomClient_MultiPlayer();
 
             //
-            //Sample GET-Method:
+            //May put sample GET-method here:
             //
-            string isApiAlive = API.GetAlive();
-            Console.WriteLine(isApiAlive);
+            Console.WriteLine("WELCOME");
 
             //
-            //Here YOUR Code begin! Have Fun.
+            //Here YOUR Code begins! Have Fun.
             //
+            Console.ReadLine();
 
         }
     }
