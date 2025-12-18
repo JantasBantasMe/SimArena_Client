@@ -8,6 +8,7 @@ namespace USTP_ArenaInterface
         {
             //
             //Here the Custom HttpClient will be instantiated:
+            //DO NOT DELETE THIS!
             //
             SimArenaCustomClient_SinglePlayer spApi = new SimArenaCustomClient_SinglePlayer();
             SimArenaCustomClient_MultiPlayer mpApi = new SimArenaCustomClient_MultiPlayer();
@@ -15,7 +16,7 @@ namespace USTP_ArenaInterface
             //
             //May put sample GET-method here:
             //
-            Console.WriteLine("WELCOME");
+            Console.WriteLine("WELCOME - fill in your first GET-Method out of the ReadMe.");
 
             //
             //Here YOUR Code begins! Have Fun.
