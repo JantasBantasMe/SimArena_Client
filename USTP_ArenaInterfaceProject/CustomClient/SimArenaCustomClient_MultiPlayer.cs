@@ -16,7 +16,7 @@ namespace MyProject.CustomClient
         //
         //Base Url as constant:
         //
-        private const string BASE_URL = "battlearena-fjesghhhbugdasfp.westeurope-01.azurewebsites.net";
+        private const string BASE_URL = "https://battlearena-fjesghhhbugdasfp.westeurope-01.azurewebsites.net";
 
         ////Local BASE_URL for Testing:
         //private const string BASE_URL = "https://localhost:7071"; //change if your local version is another URL
