@@ -31,8 +31,6 @@ Often there are hints or mini-helpers/questions, try to read carefully.
 4. Survival-Game
 5. "Your complete other idea"
 
-# GERALD-WEINBERGER -> Hier bitte anführen, was die mindestanforderungen sind (Wie die 3 Räume etc. bei Text-Adventure)
-
 ---
 
 ## 📂 Project Architecture Overview
