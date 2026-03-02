@@ -35,7 +35,7 @@ Often there are hints or mini-helpers/questions, try to read carefully.
 
 ## 📂 Project Architecture Overview
 
-Ready:
+Ready for you:
 - Program.cs → entry point
 - CustomClient Folder:
     - SimArenaCustomClient_SinglePlayer.cs → ready-to-use API wrapper
@@ -61,6 +61,8 @@ winget install Microsoft.DotNet.SDK.10
 - Windows, Linux or macOS
 - GitHub (for cloning the repository)
 
+PS: It is only tested in VisualStudio on Windows.
+
 ## ⚙️ Setup Instructions
 
 1. Clone the repository
@@ -73,7 +75,7 @@ Open the project folder in VisualStudio (optional in VisualStudioCode)
 
 3. Test the API
 
-In the `Program.cs`, you will find the first GET-request to check if the API is running.
+In the `Program.cs` is everything you need, start with [Step 1](#-step-1---api-connectivity-test).
 
 4. Start with [Step 1 Connectivity Test](#step1)
 
@@ -81,12 +83,12 @@ In the `Program.cs`, you will find the first GET-request to check if the API is 
 
 # 🎓 Learning Path & Tasks
 
-This project is structured to guide you — from simple GET requests to POST requests with different response types — all the way to creating your own version of a fun project on your own.
+This project is structured to guide you — from simple GET requests to POST requests with different response types.
 
 <a id="step1"></a>
 ## 🪜 Step 1 - API Connectivity Test
 
-You can use the provided Api-method, or you can try on your own.
+You can use the provided Api-method, or you can try to write it on your own.
 
 ```
 Console.WriteLine("Is the Singleplayer-API ready?");
@@ -97,7 +99,7 @@ Console.ReadLine();
 
 Turn the GET-method into a simple **loop** to fire it as often as you like during RunTime with enter.
 
-If you get the responses, everything works and you can start.
+If you get the response, everything works and you can continue.
 
 ### 💭 Think about this
 
@@ -115,23 +117,42 @@ If you get the responses, everything works and you can start.
 
 Now create your first **class** and fill it with these properties:
 
+Before writing the code, create a new class file:
+1. Right-click on your project in Solution Explorer
+2. Select Add → New Item…
+3. Choose Class
+4. Name it (e.g. YourClass1.cs)
+5. Click Add
+6. Change the class from internal to public
+7. Write or Copy the code below into the class
+
 ```csharp
-class <Your-Class-Name>
+public class YourClass1
 {
-    string Name { get; set; }
-    int Hp { get; set; }
-    int AttackMin { get; set; }
-    int DefenseMin { get; set; }
+    public string Name { get; set; }
+    public int Hp { get; set; }
+    public int AttackMin { get; set; }
+    public int DefenseMin { get; set; }
 }
 ```
 
-Make sure to use exactly these property names, because the API depends on them.
+Make sure to use exactly these property names, because the API **depends** on them!
 
 After defining the class, create (instantiate) an object of your class in your program.
 
+```csharp
+    YourClass1 profFighter = new YourClass1
+    {
+        Name = "Gerald",
+        Hp = 100,
+        AttackMin = 10,
+        DefenseMin = 10
+    };
+```
+
 ### 🌐 Use the API
 
-Take the first POST-method and fill it with your object. 
+Take the first POST-method and fill it with your object. Handle the [response](#-use-the-response).
 
 `spApi.PostFirstArena(<your class object>)`
 
@@ -153,9 +174,9 @@ Catch the response in a simple `string` variable and write it to the console.
 ### 💭 Think about this
 
 - Why is it essential to name the properties exactly like this? What happens if it differs? Try it.
-- Is it possible to fill in the properties while the code is running? Try to implement this.
+- Is it possible to fill in the properties while the code is running? Try to implement a little Character-Creator-Menu.
 - Which access-modifier could you use for your class? Which one should you use and why?
-- Do you struggle as much as i did when first learning to program? → Best luck! It gets better.
+- Do you struggle as much as i did when first learning to code? → Best luck! It gets better - step by step.
 
 ---
 
@@ -203,7 +224,6 @@ The arena rules are as followed:
   
 Hint: roll above accuracy == miss
 
-
 ### 🧾 Use the response
 
 Catch the response in a `List` and try to loop over it to output the response into the console.
@@ -211,15 +231,15 @@ The fighting log is safed line for line in this `List`.
 
 ### Optional:
 
-Implement an interactive system to create characters dynamically using constructors and attributes, so new characters can be generated at runtime without modifying the code.
-Generate a minimum of 3 different characters and have them participate in the fight before you need to come back to the codebase again.
+Implement an interactive system to create characters dynamically using constructors and attributes, so new characters can be generated at runtime without modifying the code. Try to implement a little Character-Creator-Menu.
+Generate a minimum of 3 different characters and have them participate in the fight before you need to close the console.
 
 ### 💭 Think about this
 
 - While iterating the list, can you add a pause during each full round and then continue when pressing Enter? Try it.
 - Is there only one way to iterate over the list? Test the possiblities to find the best.
-- How often can you inherit from something? Is inheritance even possible for the constructor, or do i need to write the full constructor in each inherited class? Do i know what a constructor even is?
-- Did you use an OP-character, only to stomp a wooden puppet? I did.
+- How often can you inherit from something? Is inheritance even possible for the constructor, or do i need to write the full constructor in each inherited class? Do i know what a constructor even is at this point?
+- Did you use an OP-character, only to stomp a wooden puppet? Well, I did.
 - Methods often require parameters, did you know you could set the requirement for your first class, but put in your second class? Try it.
 
 ---
@@ -252,7 +272,7 @@ Since `"balanced" == "balanced"` **No one** receives the buff.
 
 This introduces a rock-paper-scissor mechanic to the arena, giving the winner a 20% buff to their rolled-attack and rolled-defense. The list is iterated cyclically, so it doesn’t matter how many tactics you prepare — once it reaches the end, it starts again from the beginning.
 
-Win against the HexTech-Puppet, which randomly distributes 100 points:  
+Win against the HexTech-Puppet, which randomly distributes 100 points and a few random tactics:  
 ```csharp
 {
     maxPoints = 100,
@@ -280,10 +300,13 @@ As before, use the response and show it in the console.
 
 - Can you implement a random character method like the HexTech-Puppet one?
 - What happens if you send wrong tactics? Try it and go debug mode.
+- You don’t want to see every fighting round, but only the result in the last 5 rows? How would you handle that?
 
 ### DTO (Data-Transfer-Object) to send 2 characters
 
-To send two characters into the arena, check out **DTOs** and figure out how to combine two classes into a single one.
+To send two characters into the arena, take a look at **DTOs** and figure out how to combine two classes into a single one.
+
+For this task, it’s not complicated — you just need a new class that contains your existing classes as properties.
 
 Use the following property names:
 
@@ -304,20 +327,19 @@ As before, use the response and show it in the console.
 
 ### 💭 Think about this
 
-- Do you know what happens when you use "random" as the name property? Can you recreate such a function?
-- Can you tamper with the response data? May break **round** for **round** with a Console.ReadLine()?
+- Do you know what happens when you use "random" as the name property? Can/Will you recreate such a randomize function?
 - Can you save the response in a txt-file and read from it again? And therefore create something like an "arena-history"? Try it.
 - Can you come up with a SkillPoint-system Idea which is balanced and fair for multiplayer? (Tell me please, balancing is hard.)
 
-
-
 <a id="step5"></a>
-## 🪜 Step 5 - Final Singelplayer Step: 🏁
+## 🪜 Step 5 - Final OPTIONAL Singelplayer Step: 🏁
 
 Hopefully, this project has sparked some inspiration for you so far.
 
 After you´ve completed the test fights against random characters, it´s time to build your own creative project.
 Bring your complete own idea to life, and/or use the API to create something unique and modular!
+
+Here some AI-Ideas:
 
 | Idea                    | Description                                                     |
 | ----------------------- | --------------------------------------------------------------- |
@@ -330,15 +352,19 @@ Bring your complete own idea to life, and/or use the API to create something uni
 ### 🌐 Use the API
 
 `spAPI.PostSecondArena_OneVSOne(<your class DTO-object>)`
+
 or
+
 `spAPI.PostThirdArena_OneVSOne(<your class DTO-object>)`
+
 or
+
 `create your own, better version.`
 
 ### 💭 Think about this
 
 - What would you make better?
-- Have you learned something? (I hope you did, its my first real project.)
+- Have you learned something? (I hope you did, its my first project.)
 - What you want to implement/learn next?
 - What is the next project your are going to bring to life?
 
@@ -351,7 +377,7 @@ To keep your design clean and avoid mixing responsibilities, you should define a
 
 The singleplayer classes represent raw combat stats, while the multiplayer system introduces skill points, transformations, and stat derivation rules.  
 
-Combining both into one class would blur these concerns and violate the Single Responsibility Principle. Even though you could reuse your most recent singleplayer class, it would no longer model its original purpose correctly.
+Combining both into one class would blur these concerns and violate the **Single Responsibility Principle**. Even though you could reuse your most recent singleplayer class, it would no longer model its original purpose correctly.
 
 Therefore, create a fresh class dedicated to the skill-point mechanic:
 
@@ -378,7 +404,7 @@ Each skill point you assign not only affects the chosen attribute, but also modi
   
 For [example](#sp-sample): +1 point in **AttackMinPoints** = +1 **HP** and +2 **AttackMin**.
 
-For [example](#sp-sample) in text form: If you put one point into **AccuracyPoints** you really get plus 10. Or if you put one point into **DefenseMaxPoints** you really get plus 5 which is big, but you get a penalty of minus 5 to your accuracy.
+For [example](#sp-sample) in text form: If you put one point into **AccuracyPoints** you really get plus **10**. Or if you put one point into **DefenseMaxPoints** you really get plus **5** which is big, but you get a penalty of minus 5 to your accuracy.
 
 The BASE value is added before any skill points, and all modifiers are cumulative per assigned point.
 
@@ -441,7 +467,7 @@ Catch the response as before and write it to the console. This should already wo
 ### 💭 Think about this
 
 - Optional: Can you rewrite the custom client to function in async? Like it should normally be.
-- Do you know what scalar is? Do you know what OpenAPI is? Try to explain them on paper and then check it.
+- Do you know what scalar is? Do you know what OpenAPI is? Try to explain them on paper and then check it yourself, this will help in the next C# Class.
 - Do you know more than GET and POST? → NO? → go and learn?
 - Do you like the system? 
     → NO? :( → create your own-better version and please give feedback what could be better.
@@ -488,3 +514,7 @@ One multiplayer-endpoint is not implemented in the custom client. Can you find a
 I hope the project is understanable and helpful for the start of learning how to code and how to use OOP.  
 This should give you a perspective how to start into OOP and afterwards find something to explore by yourself.
 It is intentionally kept very simple, and I welcome any feedback for improvements.
+
+<p style="font-family: 'Segoe Script', cursive; font-size: 32px;">
+Jan Bachleitner
+</p>
