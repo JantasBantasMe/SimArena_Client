@@ -515,6 +515,4 @@ I hope the project is understanable and helpful for the start of learning how to
 This should give you a perspective how to start into OOP and afterwards find something to explore by yourself.
 It is intentionally kept very simple, and I welcome any feedback for improvements.
 
-<p style="font-family: 'Segoe Script', cursive; font-size: 32px;">
-Jan Bachleitner
-</p>
+Jan Bachleitner - is231037
